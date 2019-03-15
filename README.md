@@ -25,7 +25,8 @@ Note that the code for PPO has been taken from [here](https://github.com/sanjayt
 	- ```python Validate_GP_Controller.py -c 3 -ws 2 -po True```
 	- ```python Validate_BBB_Controller.py -c 3 -ws 2 -po True```
 	After these commands finish execution, open `sliding_block/plots.ipynb`
-	- ```all_task_configurations = [
+	- ```
+		all_task_configurations = [
 		    {BEHAVIORAL_CONTROLLER_KEY: 'BBB', CONTEXT_CODE_KEY: '3', WINDOW_SIZE_KEY: '2', PARTIAL_OBSERVABILITY_KEY: 'True'},
 		    {BEHAVIORAL_CONTROLLER_KEY: 'GP', CONTEXT_CODE_KEY: '3', WINDOW_SIZE_KEY: '2', PARTIAL_OBSERVABILITY_KEY: 'True'},
 		    {BEHAVIORAL_CONTROLLER_KEY: 'BBB', CONTEXT_CODE_KEY: '3', WINDOW_SIZE_KEY: '5', PARTIAL_OBSERVABILITY_KEY: 'True'},
@@ -35,7 +36,8 @@ Note that the code for PPO has been taken from [here](https://github.com/sanjayt
 		plt.rcParams["grid.alpha"] = 1
 		plt.rcParams["grid.color"] = "#cccccc"
 
-		final_flourish(all_task_configurations, uncertainty_ylim=250., cost_ylim=1e6, predictive_error_ylim=1e6)```
+		final_flourish(all_task_configurations, uncertainty_ylim=250., cost_ylim=1e6, predictive_error_ylim=1e6)
+		```
 2. To reproduce the bottom subfigure in figure 2, run the following command from the directory `MuJoCo/`.
 	- ```python Generate_BBB_Controller.py -d Swimmer -t 4 -ws 1 -nd 1```
 	- ```python Generate_GP_Controller.py -d Swimmer -t 4 -ws 1 -nd 1```
@@ -49,7 +51,8 @@ Note that the code for PPO has been taken from [here](https://github.com/sanjayt
 	-  ```python proposed_mechanism.py -et active_learning_proof_of_concept -c NAIVE -dn HalfCheetah```
 	-  ```python proposed_mechanism.py -et active_learning_proof_of_concept -c NAIVE -dn Swimmer```
 	After these commands finish execution, open `MuJoCo/Plots.ipynb`
-	- ```all_configurations = [
+	- ```
+		all_configurations = [
 		    {'controller': 'BBB' , 'detector_c': 7.0, 'detector_m': 200, 'number_demonstrations': 10},
 		    {'controller': 'NAIVE', 'number_demonstrations': 10},
 		]
@@ -57,8 +60,10 @@ Note that the code for PPO has been taken from [here](https://github.com/sanjayt
 		compare_data_efficiency(domain_name='HalfCheetah',
 		                        all_configurations=all_configurations,
 		                        simulation_iterators=[0],
-		                        demonstration_request_to_gauge=2)```
-    - ```all_configurations = [
+		                        demonstration_request_to_gauge=2)
+    	```
+    - ```
+    	all_configurations = [
 		    {'controller': 'BBB' , 'detector_c': 20.0, 'detector_m': 200, 'number_demonstrations': 10},
 		    {'controller': 'NAIVE', 'number_demonstrations': 10},
 		]
@@ -66,7 +71,8 @@ Note that the code for PPO has been taken from [here](https://github.com/sanjayt
 		compare_data_efficiency(domain_name='Swimmer',
 		                        all_configurations=all_configurations,
 		                        simulation_iterators=[0],
-		                        demonstration_request_to_gauge=2)```
+		                        demonstration_request_to_gauge=2)
+        ```
 
 4. To reproduce the results shown in figure 4, run the following commands from directory `MuJoCo/`.
 	-  ```python proposed_mechanism.py -et data_efficient_active_learning -c BBB -dn HalfCheetah -dc 1.7 -dm 200```
@@ -84,7 +90,8 @@ Note that the code for PPO has been taken from [here](https://github.com/sanjayt
 	-  ```python random_controller.py HalfCheetah```
 	-  ```python random_controller.py Swimmer```
 	After these commands finish execution, open `MuJoCo/Plots.ipynb`
-	- ```all_configurations = [
+	- ```
+		all_configurations = [
 		    {'controller': 'BBB' , 'detector_c': 1.7, 'detector_m': 200, 'number_demonstrations': 10},
 		    {'controller': 'BBB' , 'detector_c': 1.7, 'detector_m': 50, 'number_demonstrations': 10},
 		    {'controller': 'BBB' , 'detector_c': 1.5, 'detector_m': 100, 'number_demonstrations': 10},
@@ -96,8 +103,10 @@ Note that the code for PPO has been taken from [here](https://github.com/sanjayt
 
 		compare_conservativeness_with_scatter_plot(domain_name='HalfCheetah',
 		                         all_configurations=all_configurations, ymax=49000.,
-		                         simulation_iterators=[0,1,2,3,4])```
-	- ```all_configurations = [
+		                         simulation_iterators=[0,1,2,3,4])
+         ```
+	- ```
+		all_configurations = [
 		    {'controller': 'BBB' , 'detector_c': 1.7, 'detector_m': 200, 'number_demonstrations': 10},
 		    {'controller': 'BBB' , 'detector_c': 1.7, 'detector_m': 50, 'number_demonstrations': 10},
 		    {'controller': 'BBB' , 'detector_c': 1.5, 'detector_m': 100, 'number_demonstrations': 10},
@@ -109,4 +118,5 @@ Note that the code for PPO has been taken from [here](https://github.com/sanjayt
 
 		compare_conservativeness_with_scatter_plot(domain_name='Swimmer',
 		                         all_configurations=all_configurations, ymax=3500.,
-		                         simulation_iterators=[0,1,2,3,4])```                  
+		                         simulation_iterators=[0,1,2,3,4])
+         ```                  
